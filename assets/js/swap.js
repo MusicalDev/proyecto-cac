@@ -6,13 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('search-bar');
     const categoryList = document.getElementById('category-list');
 
-
     let allProducts = [];
 
     modal.style.display = 'none';
 
-
-    // Fetch data from the FakeStore API
     async function fetchProductData() {
         const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
@@ -21,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         populateCategories(data);
         return data;
     }
-    // Display products
     function displayProducts(products) {
         productContainer.innerHTML = '';
         products.forEach(product => createProductCard(product));
@@ -111,8 +107,6 @@ function createProductCard(product) {
         `;
         modal.style.display = 'block';
     }
-
-    // Close modal
     closeButton.onclick = () => {
         modal.style.display = 'none';
     };
@@ -122,8 +116,6 @@ function createProductCard(product) {
             modal.style.display = 'none';
         }
     };
-
-    // Filter products by search term
     searchBar.addEventListener('keyup', () => {
         const searchTerm = searchBar.value.toLowerCase();
         const cards = document.querySelectorAll('.card');
@@ -137,8 +129,6 @@ function createProductCard(product) {
             }
         });
     });
-
-    // Fetch data and initialize the application
     async function init() {
         const products = await fetchProductData();
         products.forEach(product => createProductCard(product));

@@ -28,7 +28,6 @@ let AboutIndex = `
             intercambio es una forma de comercio más
             <b class="negrita-color">justa y equitativa</b>, que beneficia tanto
             a las personas como al planeta.<br /><br />
-
             <b class="negrita-color">Rosario Swap</b> es un espacio donde
             puedes:<br /><br />
             😊 Deshacerte de aquello que ya no necesitas y darle una nueva vida

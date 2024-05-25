@@ -3,16 +3,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   function activate(e) {
     const items = document.querySelectorAll('.item');
-    
-    // Comprueba si el clic es en el botón siguiente o anterior
+
     if (e.target.matches('.next')) {
       e.preventDefault();
       slider.append(items[0]);
     } else if (e.target.matches('.prev')) {
       e.preventDefault();
       slider.prepend(items[items.length - 1]);
-    } 
-    // Comprueba si el clic está en un elemento y no en un enlace
+    }
     else if (e.target.closest('.item') && !e.target.closest('a')) {
       e.preventDefault();
       const clickedItem = e.target.closest('.item');

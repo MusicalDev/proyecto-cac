@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Mensaje enviado correctamente');
                     form.reset();
                 } else {
-        
+
                     response.json().then(data => {
                         if (Object.hasOwn(data, 'errors')) {
                             alert(data["errors"].map(error => error["message"]).join(", "));
@@ -72,4 +72,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitBtn.disabled = false;
             });
         }
-    })});
+    })
+});

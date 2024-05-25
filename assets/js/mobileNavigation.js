@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     mobileNavigation.style.opacity = '1';
                     mobileNavigation.style.visibility = 'visible';
-                }, 10); // Delay to allow the display change to take effect
+                }, 10);
             } else {
                 mobileNavigation.style.opacity = '0';
                 mobileNavigation.style.visibility = 'hidden';
                 setTimeout(() => {
                     mobileNavigation.classList.remove('is-active');
                     mobileNavigation.style.display = 'none';
-                }, 300); // Delay to allow the opacity transition to complete
+                }, 300);
             }
         });
     } else {
