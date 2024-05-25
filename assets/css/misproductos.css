@@ -1,29 +1,30 @@
 .main-perfil {
     display: flex;
-        height: 100vh;
-        width: 100%;
-        background-color: #6B4FA9;
-        margin: 0;
-        padding: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        place-items: center;
-    }
+    height: 100vh;
+    width: 100%;
+    background-color: #6B4FA9;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
 
-    .title-perfil {
-        color: aliceblue;
-        font-size: 3rem;
-        font-weight: bold;
-    }
-    .perfil-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: url('../images/under-construction.webp');
-        width: 450px;
-        height: 500px;
-        background-repeat: no-repeat;
-        object-fit: contain;
-        object-position: center;
-    }
+.title-perfil {
+    color: aliceblue;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.perfil-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/under-construction.webp');
+    width: 450px;
+    height: 500px;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    object-position: center;
+}

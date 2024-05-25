@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -15,18 +17,20 @@ body {
   min-height: 100%;
   padding: 0;
 }
+
 .main-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh!important;
-} 
+  height: 100vh !important;
+}
 
 a {
   text-decoration: none;
   color: gray;
   transition: .5s ease;
 }
+
 a:hover {
   color: black;
 }
@@ -48,12 +52,13 @@ a:hover {
 
 @media only screen and (max-width: 576px) {
   .form {
-      width: 90vw;
-      padding: 15px;
-      height: auto;
-      margin: 0px;
+    width: 90vw;
+    padding: 15px;
+    height: auto;
+    margin: 0px;
   }
 }
+
 .inner-form {
   display: flex;
   flex-direction: column;
@@ -68,11 +73,13 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
 }
+
 .tab-group:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .tab-group li a {
   display: block;
   text-decoration: none;
@@ -89,6 +96,7 @@ a:hover {
   transition: .5s ease;
   border-radius: 50px;
 }
+
 @media only screen and (max-width: 576px) {
   .tab-group li a {
     font-size: 15px;
@@ -108,7 +116,7 @@ a:hover {
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.329);
 }
 
-.tab-content > div:last-child {
+.tab-content>div:last-child {
   display: none;
 }
 
@@ -118,9 +126,10 @@ h1 {
   font-weight: 500;
   margin: 0 0 40px;
 }
+
 @media only screen and (max-width: 576px) {
   h1 {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
 
@@ -134,9 +143,10 @@ h1 {
   pointer-events: none;
   font-size: 18px;
 }
+
 @media only screen and (max-width: 576px) {
   #label2 {
-      font-size: 15px;
+    font-size: 15px;
   }
 }
 
@@ -151,6 +161,7 @@ h1 {
   font-size: 14px;
   font-weight: 600;
 }
+
 #label2.active .req {
   opacity: 0;
 }
@@ -159,7 +170,8 @@ h1 {
   color: gray;
 }
 
-input, textarea {
+input,
+textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -173,13 +185,18 @@ input, textarea {
   transition: border-color .25s ease, box-shadow .25s ease;
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.329);
 }
-input:focus, textarea:focus {
+
+input:focus,
+textarea:focus {
   outline: 0;
   border-color: #6B4FA9;
 }
+
 @media only screen and (max-width: 576px) {
-  input, textarea {
-      font-size: 20px;
+
+  input,
+  textarea {
+    font-size: 20px;
   }
 }
 
@@ -189,7 +206,7 @@ input:focus, textarea:focus {
 .field-wrap {
   position: relative;
   margin-bottom: 30px;
-  
+
 }
 
 .top-row:after {
@@ -198,17 +215,19 @@ input:focus, textarea:focus {
   clear: both;
   width: 100%;
 }
-.top-row > div {
- 
+
+.top-row>div {
+
   float: left;
   width: 48%;
   margin-right: 4%;
 }
-.top-row > div:last-child {
+
+.top-row>div:last-child {
   margin: 0;
 }
 
-.button { 
+.button {
   border: 0;
   outline: none;
   border-radius: 0;
@@ -221,20 +240,22 @@ input:focus, textarea:focus {
   transition: all 0.5s ease;
   border-radius: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  
+
 }
-.button:hover, .button:focus {
+
+.button:hover,
+.button:focus {
   background: #4f3a7c;
-  transform: scale(0.95)!important;
-  
-  
+  transform: scale(0.95) !important;
+
+
 }
 
 .button-block {
   display: block;
   width: 100%;
   height: 5vh;
-  font-size: 22px!important;
+  font-size: 22px !important;
 
 
 }
@@ -245,4 +266,3 @@ input:focus, textarea:focus {
   text-align: right;
   font-weight: 800;
 }
-

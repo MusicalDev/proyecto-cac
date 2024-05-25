@@ -1,8 +1,8 @@
-
 body {
     display: block;
     font-family: "Inter", sans-serf;
 }
+
 main {
     position: relative;
     width: 100%;
@@ -77,26 +77,29 @@ main {
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
-    
+
     & .title {
         text-transform: uppercase;
         font-size: 3rem;
     }
+
     & .description {
         line-height: 1.5;
         margin: 1rem 0 1.5rem;
         font-size: 2rem;
     }
+
     @media only screen and (max-width: 600px) {
         .description {
-        display: none;
-        
+            display: none;
+
+        }
     }
-}
+
     & button {
         width: fit-content;
         background-color: #D9BD59;
-        color:#6B4FA9;
+        color: #6B4FA9;
         font-weight: 700;
         border: 2px solid #d9bd59be;
         border-radius: 30px;
@@ -108,51 +111,60 @@ main {
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .content {
-    position: absolute;
-    font-size: 1rem;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    top: 20%; /* Coloca el elemento en el centro vertical */
-    left: 50%; /* Coloca el elemento en el centro horizontal */
-    transform: translate(-50%, -50%); /* Centra el elemento correctamente */
-    width: auto;
-    margin: auto;
-    padding: 10px 20px;
-    border-radius: 20px;
+        position: absolute;
+        font-size: 1rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        top: 20%;
+        /* Coloca el elemento en el centro vertical */
+        left: 50%;
+        /* Coloca el elemento en el centro horizontal */
+        transform: translate(-50%, -50%);
+        /* Centra el elemento correctamente */
+        width: auto;
+        margin: auto;
+        padding: 10px 20px;
+        border-radius: 20px;
+    }
 }
-}
+
 @media only screen and (max-width: 600px) {
     button {
-   display: none;
+        display: none;
     }
 }
 
 @media only screen and (max-width: 1024px) {
     .title {
-   font-size: 2rem!important;
+        font-size: 2rem !important;
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .description {
-   font-size: 1.5rem!important;
+        font-size: 1.5rem !important;
     }
 }
+
 @media only screen and (max-width: 768px) {
     .title {
-   font-size: 1.2rem!important;
-   
+        font-size: 1.2rem !important;
+
     }
 }
+
 @media only screen and (max-width: 768px) {
     .description {
-   font-size: 1rem!important;
+        font-size: 1rem !important;
     }
 }
+
 button:hover {
     background: #D9BD59;
-    transform: scale(0.95)!important;
+    transform: scale(0.95) !important;
 }
 
 .item:nth-of-type(2) .content {
@@ -200,7 +212,7 @@ button:hover {
 @media (width > 650px) and (width < 900px) {
     .content {
         & .title {
-            font-size: 1.4rem!important;
+            font-size: 1.4rem !important;
         }
 
         & .description {

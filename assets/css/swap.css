@@ -79,8 +79,9 @@ p {
 .sidebar-section h3 {
     color: #6B4FA9;
     margin-top: 10px;
-    
+
 }
+
 .productos-title h3 {
     font-size: 0.9rem;
 }
@@ -193,8 +194,10 @@ p {
     margin-bottom: 1rem;
     font-weight: 600;
     transition: all 0.5s ease;
-    display: block; /* Asegura que los botones se comporten como elementos de bloque */
-    width: 100%; /* Para que los botones tomen el ancho completo del contenedor */
+    display: block;
+    /* Asegura que los botones se comporten como elementos de bloque */
+    width: 100%;
+    /* Para que los botones tomen el ancho completo del contenedor */
 }
 
 .card .read-more-button:hover {
@@ -211,6 +214,7 @@ p {
     background-color: #f1c555;
     transform: scale(0.95);
 }
+
 .modal {
     display: none;
     position: fixed;
