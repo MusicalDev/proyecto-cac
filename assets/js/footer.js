@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     let Footer = `
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <footer class="footer-distributed">
       <div class="footer-left">
         <h3>Rosario&nbsp;<span>Swap</span></h3>
