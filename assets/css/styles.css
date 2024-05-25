@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* Variables */
+:root {
+    --font-family: "Quicksand", sans-serif;
+    --normal-font: 400;
+    --bold-font: 700;
+    --bolder-font: 900;
+    --bg-color: #fcfcfc;
+    --primary-color: #6B4FA9;
+    /* --secondary-color: #be394f;
+    --primary-shadow: #8b8eaf;
+    --secondary-shadow: #a17a69; */
+    --bottom-margin: 0.5rem;
+    --bottom-margin-2: 1rem;
+    --transition: 0.3s;
+    width: 100%;
+    height: 100%;
+
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+p {
+    text-indent: 20px;
+}
+
+
+body {
+    font-family: var(--font-family);
+    display: flex;
+    position: flex;
+    flex-direction: column;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+
+
+.home {
+    position: relative;
+    height: 92vh;
+    width: 95vw;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.719);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: backdrop-filter 0.3s ease, opacity 0.3s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .home {
+        height: 96vh;
+        width: 95vw;
+    }
+}
+
+.blur1 {
+    background-color: #e4d4d4d0;
+    position: absolute;
+    top: -2rem;
+    right: 21rem;
+    z-index: -10;
+    height: 41.25rem;
+    width: 51.25%;
+    border-radius: 50%;
+    filter: blur(10rem);
+    overflow: hidden;
+}
+
+.blur2 {
+    background-color: #c4c4e7d2;
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+    z-index: -10;
+    height: 41.25rem;
+    width: 60%;
+    border-radius: 50%;
+    filter: blur(10rem);
+    overflow: hidden;
+}
+
+.header {
+    z-index: 999;
+    position: fixed;
+    font-weight: 500;
+    color: gray;
+    top: 0.8rem;
+    width: 37rem;
+    border-radius: 30px;
+    padding: 10px;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3.25rem;
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header.desenfocado {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.267);
+
+}
+
+.header.desenfocado::before {
+    opacity: 0.5;
+}
+
+.navbar {
+    display: flex;
+    top: 6px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    height: initial;
+}
+
+.navegacion {
+    display: flex;
+    place-items: center;
+    justify-items: center;
+}
+
+nav a {
+    color: var(--color-primario);
+    padding: 8px;
+    white-space: nowrap;
+
+}
+
+.nav-link:active,
+nav a:focus {
+    background-color: rgb(190 190 190 / 0.2);
+    color: #D9BD59;
+    border-radius: 30px;
+    box-shadow: inset 0 0 0 1px rgba(177, 175, 175, 0.2);
+    font-weight: 600;
+}
+
+.navegacion .nav-link.active {
+    background-color: rgba(190, 190, 190, 0.2);
+    color: #6B4FA9;
+    box-shadow: inset 0 0 0 1px rgba(177, 175, 175, 0.2);
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.219);
+}
+
+
+nav ul {
+    display: flex;
+    width: initial;
+    gap: 1.5rem;
+    padding: 10px;
+    font-weight: medium;
+}
+
+nav a:hover {
+    background-color: rgb(190 190 190 / 0.2);
+    border-radius: 30px;
+    box-shadow: inset 0 0 0 1px rgba(177, 175, 175, 0.2);
+
+
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.hero-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    gap: 30px;
+}
+
+.hero-title {
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    font-size: 6rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media only screen and (max-width: 768px) {
+    .hero-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4.5rem;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .hero-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 9999px;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.button:hover,
+.button:focus {
+    transform: scale(1.05);
+}
+
+.register {
+    background-color: #0D1117;
+}
+
+.login {
+    background-color: #6B4FA9;
+}
+
+.instagram {
+    background-color: #e1e1e9;
+}
+
+.facebook {
+    background-color: #e1e1e9;
+}
+
+.icon {
+    margin-left: 6px;
+    place-items: center;
+}
+
+svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        display: none;
+    }
+}
