@@ -8,14 +8,14 @@
 //     });
 // });
 document.addEventListener("DOMContentLoaded", function () {
-    const currentPagePath = window.location.pathname; // Obtener solo la parte de la ruta de la URL actual
+    const currentPagePath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
-
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname; // Obtener solo la parte de la ruta del enlace
-        if (linkPath === currentPagePath) {
+        // Compara la ruta de la página actual con el atributo href de cada enlace
+        if (link.getAttribute('href') === currentPagePath) {
             link.classList.add('active');
         }
     });
 });
+
 
