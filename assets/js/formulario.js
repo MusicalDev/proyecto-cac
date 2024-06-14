@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         if (validate(form)) {
             submitBtn.disabled = true;
-            fetch('https://formspree.io/f/meqywrzo', {
+            fetch('Link del formspree', {
                 method: 'POST',
                 body: new FormData(form),
                 headers: {
