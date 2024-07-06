@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/hamburger.css" />
+    <link rel="stylesheet" href="./assets/css/altas.css" />
+    <link rel="stylesheet" href="./assets/css/listado.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <script src="./assets/js/mobileNavigation.js"></script>
+    <script src="./assets/js/activeNavbar.js"></script>
+    <script src="./assets/js/colorGradient.js"></script>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <title>Listado de Productos</title>
+</head>
+
+<body>
+    <header class="header">
+        <navbar>
+        </navbar>
+    </header>
+    <hamburger>
+    </hamburger>
+    <main class="mainContenedor">
+    <div class="contenedor">
+        <h1>Listado de Productos</h1>
+        <div class="mainListado" id="gradient">
+            <div class="contenedorTable">
+                <table> <!-- Se crea una tabla para mostrar los productos. -->
+                    <thead>
+                        <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
+                        <tr>
+                            <th>Código</th>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th align="center">Precio</th>
+                            <th>Imagen</th>
+                            <th align="center">N° de Producto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProductos"> </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="contenedor-centrado">
+            <a class="menuPrincipal" href="MisProductos.html">Menú principal</a>
+        </div>
+    </div>
+</main>
+
+    <script>
+        //const URL = "http://127.0.0.1:5000/"
+
+        // Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+        const URL = "https://musicdev.pythonanywhere.com/"
+
+
+        // Realizamos la solicitud GET al servidor para obtener todos los productos.
+        fetch(URL + 'productos')
+            .then(function (response) {
+                if (response.ok) {
+                    //Si la respuesta es exitosa (response.ok), convierte el cuerpo de la respuesta de formato JSON a un objeto JavaScript y pasa estos datos a la siguiente promesa then.
+                    return response.json();
+                } else {
+                    // Si hubo un error, lanzar explícitamente una excepción para ser "catcheada" más adelante
+                    throw new Error('Error al obtener los productos.');
+                }
+            })
+
+            //Esta función maneja los datos convertidos del JSON.
+            .then(function (data) {
+                let tablaProductos = document.getElementById('tablaProductos'); //Selecciona el elemento del DOM donde se mostrarán los productos.
+
+                // Iteramos sobre cada producto y agregamos filas a la tabla
+                for (let producto of data) {
+                    let fila = document.createElement('tr'); //Crea una nueva fila de tabla (<tr>) para cada producto.
+                    fila.innerHTML = '<td>' + producto.codigo + '</td>' +
+                        '<td>' + producto.descripcion + '</td>' +
+                        '<td align="right">' + producto.cantidad + '</td>' +
+                        '<td align="right">' + producto.precio + '</td>' +
+                        // Mostrar miniatura de la imagen
+                        //'<td><img src=./static/imagenes/' + producto.imagen_url +' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + producto.proveedor + '</td>';
+
+                        //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+                        '<td><img src=https://www.pythonanywhere.com/user/musicdev/files/home/musicdev/mysite/static/imagenes/' + producto.imagen_url + ' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + producto.proveedor + '</td>';
+
+                    //Una vez que se crea la fila con el contenido del producto, se agrega a la tabla utilizando el método appendChild del elemento tablaProductos.
+                    tablaProductos.appendChild(fila);
+                }
+            })
+
+            //Captura y maneja errores, mostrando una alerta en caso de error al obtener los productos.
+            .catch(function (error) {
+                // Código para manejar errores
+                alert('Error al obtener los productos.');
+            });
+    </script>
+    <footer-distributed></footer-distributed>
+    <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/hamburger.js"></script>
+    <script src="/assets/js/header.js"></script>
+    <script src="./assets/js/activeNavbar.js"></script>
+    <script src="./assets/js/mobileNavigation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    background-color: #332550;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.contenedor-centrado {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.mainContenedor {
+    display: flex;
+    height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.mainListado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.contenedorTable {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+}
+
+table {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+    background-color: #FFFFFF;
+    /* border-collapse: collapse; */
+    border-radius: 28px;
+    font-weight: bold;
+
+}
+
+@media only screen and (max-width: 750px) {
+    table {
+        width: 95%;
+        height: auto;
+    }
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid #E3DDEE;
+}
+
+th {
+    width: auto;
+    background-color: #E3DDEE;
+    font-weight: bold;
+    border-radius: 50px;
+
+}
+
+td img {
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    display: relative;
+    justify-content: center;
+    align-items: center;
+    color: #D9BD59;
+    margin-bottom: 40px;
+    margin: 40px;
+
+}
+
+.menuPrincipal {
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(to bottom, #f1edf1 0%, #ddc5f3 100%);
+    color: #33305D;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    margin-top: 50px;
+}
+
+.menuPrincipal:hover {
+    transform: translateY(3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.menuPrincipal:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menuPrincipal span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+}

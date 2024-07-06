@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/hamburger.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/altas.css" /> -->
+    <!-- <link rel="stylesheet" href="./assets/css/listado.css" /> -->
+    <link rel="stylesheet" href="./assets/css/modificaciones.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <script src="./assets/js/mobileNavigation.js"></script>
+    <script src="./assets/js/activeNavbar.js"></script>
+    <script src="./assets/js/colorGradient.js"></script>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <title>Listado de Productos</title>
+</head>
+
+<body>
+    <header class="header">
+        <navbar>
+        </navbar>
+    </header>
+    <hamburger>
+    </hamburger>
+    <!-- <h1>Modificar Productos del Inventario</h1> -->
+
+    <!-- Contenedor principal que será controlado por JavaScript. Este contenedor tendrá dos formularios. -->
+    <div class="container-contacto">
+        <main class="main1" id="gradient">
+            <div class="container1">
+                <div class="container-left">
+                    <form id="form-obtener-producto">
+                        <label for="codigo">Código:</label>
+                        <input type="text" id="codigo" required><br>
+                        <button class="button2" type="submit">Modificar Producto</button>
+                    </form>
+                    <div class="image-container">
+                    </div>
+                </div>
+                <div id="app">
+                    <!-- Primer formulario: Selector de producto. LLama a la función obtenerProducto cuando se envíe el formulario -->
+                    <!-- Segundo formulario: se muestra solo si mostrarDatosProducto es verdadero. Llama a la función guardarCambios -->
+                    <img id="placeholder-image" src="./assets/images/caja.png">
+                    <div id="datos-producto" style="display: none;">
+                        
+                        <form id="form-guardar-cambios">
+                            <label for="descripcionModificar">Descripción:</label>
+                            <input type="text" id="descripcionModificar" required><br>
+
+                            <label for="cantidadModificar">Cantidad:</label>
+                            <input type="number" id="cantidadModificar" required><br>
+
+                            <label for="precioModificar">Precio:</label>
+                            <input type="number" step="0.01" id="precioModificar" required><br>
+
+                            <!-- Imagen actual del producto - Debe comentarse al subirse al servidor-->
+                            <img id="imagen-actual" style="max-width: 200px; display: none;">
+
+                            <!-- Vista previa de la nueva imagen seleccionada -->
+                            <img id="imagen-vista-previa" style="max-width: 200px; display: none;">
+
+                            <!-- Input para nueva imagen -->
+                            <label for="nuevaImagen">Nueva Imagen:</label>
+                            <input type="file" id="nuevaImagen"><br>
+
+                            <br>
+                            <label for="proveModificar">Proveedor:</label>
+                            <input type="number" id="proveModificar" required><br>
+                            <div class="buttonContainer">
+                            <button class="guardarCambios" type="submit">Guardar Cambios</button>
+                            <a class="guardarCambios" href="MisProductos.html">Cancelar</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <a class="menuPrincipal" href="MisProductos.html">Menú principal</a>
+    </main>
+    </div>
+
+    <script>
+        //const URL = "http://127.0.0.1:5000/"
+
+        //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+        const URL = "https://musicdev.pythonanywhere.com/"
+
+        // Variables de estado para controlar la visibilidad y los datos del formulario
+        let codigo = '';
+        let descripcion = '';
+        let cantidad = '';
+        let precio = '';
+        let proveedor = '';
+        let imagen_url = '';
+        let imagenSeleccionada = null;
+        let imagenUrlTemp = null;
+        let mostrarDatosProducto = false;
+
+        document.getElementById('form-obtener-producto').addEventListener('submit', obtenerProducto);
+        document.getElementById('form-guardar-cambios').addEventListener('submit', guardarCambios);
+        document.getElementById('nuevaImagen').addEventListener('change', seleccionarImagen);
+
+        // Se ejecuta cuando se envía el formulario de consulta. Realiza una solicitud GET a la API y obtiene los datos del producto correspondiente al código ingresado.
+        function obtenerProducto(event) {
+            event.preventDefault();
+            codigo = document.getElementById('codigo').value;
+            fetch(URL + 'productos/' + codigo)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    } else {
+                        throw new Error('Error al obtener los datos del producto.')
+                    }
+                })
+                .then(data => {
+                    descripcion = data.descripcion;
+                    cantidad = data.cantidad;
+                    precio = data.precio;
+                    proveedor = data.proveedor;
+                    imagen_url = data.imagen_url;
+                    mostrarDatosProducto = true; //Activa la vista del segundo formulario
+                    mostrarFormulario();
+                     // Ocultar la imagen de placeholder
+                    document.getElementById('placeholder-image').style.display = 'none';
+                })
+                .catch(error => {
+                    alert('Código no encontrado.');
+                });
+        }
+
+        // Muestra el formulario con los datos del producto
+        function mostrarFormulario() {
+            if (mostrarDatosProducto) {
+                document.getElementById('descripcionModificar').value = descripcion;
+                document.getElementById('cantidadModificar').value = cantidad;
+                document.getElementById('precioModificar').value = precio;
+                document.getElementById('proveModificar').value = proveedor;
+
+                const imagenActual = document.getElementById('imagen-actual');
+                if (imagen_url && !imagenSeleccionada) { // Verifica si imagen_url no está vacía y no se ha seleccionado una imagen
+
+                    //imagenActual.src = './static/imagenes/' + imagen_url;
+
+                    //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+                    imagenActual.src = 'https://www.pythonanywhere.com/user/musicdev/files/home/musicdev/mysite/static/imagenes/' + imagen_url;
+
+                    imagenActual.style.display = 'block'; // Muestra la imagen actual
+                } else {
+                    imagenActual.style.display = 'none'; // Oculta la imagen si no hay URL
+                }
+
+                document.getElementById('datos-producto').style.display = 'block';
+            } else {
+                document.getElementById('datos-producto').style.display = 'none';
+            }
+        }
+
+        // Se activa cuando el usuario selecciona una imagen para cargar.
+        function seleccionarImagen(event) {
+            const file = event.target.files[0];
+            imagenSeleccionada = file;
+            imagenUrlTemp = URL.createObjectURL(file); // Crea una URL temporal para la vista previa
+
+            const imagenVistaPrevia = document.getElementById('imagen-vista-previa');
+            imagenVistaPrevia.src = imagenUrlTemp;
+            imagenVistaPrevia.style.display = 'block';
+        }
+
+        // Se usa para enviar los datos modificados del producto al servidor.
+        function guardarCambios(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append('codigo', codigo);
+            formData.append('descripcion', document.getElementById('descripcionModificar').value);
+            formData.append('cantidad', document.getElementById('cantidadModificar').value);
+            formData.append('proveedor', document.getElementById('proveModificar').value);
+            formData.append('precio', document.getElementById('precioModificar').value);
+
+            // Si se ha seleccionado una imagen nueva, la añade al formData.
+            if (imagenSeleccionada) {
+                formData.append('imagen', imagenSeleccionada, imagenSeleccionada.name);
+            }
+
+            fetch(URL + 'productos/' + codigo, {
+                method: 'PUT',
+                body: formData,
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    } else {
+                        throw new Error('Error al guardar los cambios del producto.')
+                    }
+                })
+                .then(data => {
+                    alert('Producto actualizado correctamente.');
+                    limpiarFormulario();
+                    window.location.href = 'listado.html'; // Redirige a listado.html después de guardar cambios
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al actualizar el producto.');
+                });
+        }
+
+        // Restablece todas las variables relacionadas con el formulario a sus valores iniciales, lo que efectivamente "limpia" el formulario.
+        function limpiarFormulario() {
+            document.getElementById('codigo').value = '';
+            document.getElementById('descripcionModificar').value = '';
+            document.getElementById('cantidadModificar').value = '';
+            document.getElementById('precioModificar').value = '';
+            document.getElementById('proveModificar').value = '';
+            document.getElementById('nuevaImagen').value = '';
+
+            const imagenActual = document.getElementById('imagen-actual');
+            imagenActual.style.display = 'none';
+
+            const imagenVistaPrevia = document.getElementById('imagen-vista-previa');
+            imagenVistaPrevia.style.display = 'none';
+
+            codigo = '';
+            descripcion = '';
+            cantidad = '';
+            precio = '';
+            proveedor = '';
+            imagen_url = '';
+            imagenSeleccionada = null;
+            imagenUrlTemp = null;
+            mostrarDatosProducto = false;
+
+            document.getElementById('datos-producto').style.display = 'none';
+
+            document.getElementById('form-guardar-cambios').addEventListener('submit', guardarCambios);
+
+
+        }
+    </script>
+    <footer-distributed></footer-distributed>
+    <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/hamburger.js"></script>
+    <script src="/assets/js/header.js"></script>
+    <script src="./assets/js/activeNavbar.js"></script>
+    <script src="./assets/js/mobileNavigation.js"></script>
+</body>
+
+</html>

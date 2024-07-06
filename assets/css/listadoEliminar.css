@@ -1,0 +1,211 @@
+body {
+    display: flex;
+    background-color: #332550;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.contenedor-centrado {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 120vh;
+    width: 100%;
+}
+
+.mainListado2 {
+    justify-content: center;
+    align-items: center;
+    width: 71vw;
+    height: 100%;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.contenedorTable {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+}
+
+table, #productos-table {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+    background-color: #FFFFFF;
+    /* border-collapse: collapse; */
+    border-radius: 28px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 750px) {
+    table {
+        width: 95%;
+        height: auto;
+    }
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid #E3DDEE;
+}
+
+th {
+    width: auto;
+    background-color: #E3DDEE;
+    font-weight: bold;
+    border-radius: 50px;
+
+}
+
+td img {
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    display: relative;
+    justify-content: center;
+    align-items: center;
+    color: #D9BD59;
+    margin-bottom: 40px;
+    margin-top: 120px;
+
+}
+
+.menuPrincipal {
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(to bottom, #f1edf1 0%, #ddc5f3 100%);
+    color: #33305D;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.menuPrincipal:hover {
+    transform: translateY(3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.menuPrincipal:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menuPrincipal span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+}
+
+
+
+.buttonEliminar {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+    --border-width: 5px;
+    appearance: none;
+    position: relative;
+    padding: 0.5em;
+    border: 0;
+    background-color: #6B4FA9;
+    font-size: 22px;
+    font-weight: 500;
+    color: #FFFFFF;
+    z-index: 2;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+
+
+.buttonEliminar::after {
+    --m-i: linear-gradient(#E3DDEE, #E3DDEE);
+    --m-o: content-box, padding-box;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 101%;
+    height: 101%;
+    padding: var(--border-width);
+    border-radius: var(--border-radius);
+    background-image: conic-gradient(#488cfb,
+            #29dbbc,
+            #ddf505,
+            #ff9f0e,
+            #e440bb,
+            #655adc,
+            #488cfb);
+    -webkit-mask-image: var(--m-i), var(--m-i);
+    mask-image: var(--m-i), var(--m-i);
+    -webkit-mask-origin: var(--m-o);
+    mask-origin: var(--m-o);
+    -webkit-mask-clip: var(--m-o);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: hue-rotate(0);
+    animation: rotate-hue linear 900ms infinite;
+    animation-play-state: paused;
+    border-radius: 50px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+
+.buttonEliminar:hover::after {
+    animation-play-state: running;
+    transform: scale(1.05);
+}
+@keyframes rotate-hue {
+    to {
+        filter: hue-rotate(1turn);
+    }
+}
+
+.buttonEliminar,
+.buttonEliminar::after {
+    box-sizing: border-box;
+}
+
+.buttonEliminar:active {
+    --border-width: 5px;
+}
+
+
+.buttonEliminar:hover,
+.buttonEliminar:focus {
+    background: #5d4591;
+    color: #D9BD59;
+    width: 101%;
+    height: 101%;
+}

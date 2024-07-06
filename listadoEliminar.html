@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/hamburger.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/altas.css" /> -->
+    <link rel="stylesheet" href="./assets/css/listadoEliminar.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <script src="./assets/js/mobileNavigation.js"></script>
+    <script src="./assets/js/activeNavbar.js"></script>
+    <script src="./assets/js/colorGradient.js"></script>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon" />
+    <title>Eliminar Productos</title>
+</head>
+
+<body>
+    <header class="header">
+        <navbar> </navbar>
+    </header>
+    <hamburger> </hamburger>
+    <h1>Eliminar Productos del Inventario</h1>
+    <div class="contenedor2">
+    <div class="mainListado2" id="gradient">
+        <div class="contenedorTable">
+            <table id="productos-table">
+                <!-- Se crea una tabla para mostrar los productos. -->
+                <thead>
+                    <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Imagen</th>
+                        <th align="right">Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="contenedor-centrado">
+        <a class="menuPrincipal" href="MisProductos.html">Menú principal</a>
+    </div>
+
+    <script>
+        //const URL = "http://127.0.0.1:5000/"
+
+        //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+        const URL = "https://musicdev.pythonanywhere.com/";
+
+        // Obtiene el contenido del inventario
+        function obtenerProductos() {
+            fetch(URL + "productos") // Realiza una solicitud GET al servidor y obtener la lista de productos.
+                .then((response) => {
+                    // Si es exitosa (response.ok), convierte los datos de la respuesta de formato JSON a un objeto JavaScript.
+                    if (response.ok) {
+                        return response.json();
+                    }
+                })
+                // Asigna los datos de los productos obtenidos a la propiedad productos del estado.
+                .then((data) => {
+                    const productosTable = document
+                        .getElementById("productos-table")
+                        .getElementsByTagName("tbody")[0];
+                    productosTable.innerHTML = ""; // Limpia la tabla antes de insertar nuevos datos
+                    data.forEach((producto) => {
+                        const row = productosTable.insertRow();
+                        row.innerHTML = `
+                            <td>${producto.codigo}</td>
+                            <td>${producto.descripcion}</td>
+                            <td>${producto.cantidad}</td>
+                            <td><img src="https://www.pythonanywhere.com/user/musicdev/files/home/musicdev/mysite/static/imagenes/${producto.imagen_url}" alt="Imagen de ${producto.descripcion}" /></td>
+                            <td align="right">${producto.precio}</td>
+                            <td><button class="buttonEliminar" onclick="eliminarProducto('${producto.codigo}')">Eliminar</button></td>
+        `;
+                    });
+                })
+                // Captura y maneja errores, mostrando una alerta en caso de error al obtener los productos.
+                .catch((error) => {
+                    console.log("Error:", error);
+                    alert("Error al obtener los productos.");
+                });
+        }
+
+        // Se utiliza para eliminar un producto.
+        function eliminarProducto(codigo) {
+            // Se muestra un diálogo de confirmación. Si el usuario confirma, se realiza una solicitud DELETE al servidor a través de fetch(URL + 'productos/${codigo}', {method: 'DELETE' }).
+            if (confirm("¿Estás seguro de que quieres eliminar este producto?")) {
+                fetch(URL + `productos/${codigo}`, { method: "DELETE" })
+                    .then((response) => {
+                        if (response.ok) {
+                            // Si es exitosa (response.ok), elimina el producto y da mensaje de ok.
+                            obtenerProductos(); // Vuelve a obtener la lista de productos para actualizar la tabla.
+                            alert("Producto eliminado correctamente.");
+                        }
+                    })
+                    // En caso de error, mostramos una alerta con un mensaje de error.
+                    .catch((error) => {
+                        alert(error.message);
+                    });
+            }
+        }
+
+        // Cuando la página se carga, llama a obtenerProductos para cargar la lista de productos.
+        document.addEventListener("DOMContentLoaded", obtenerProductos);
+    </script>
+    <footer-distributed></footer-distributed>
+    <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/hamburger.js"></script>
+    <script src="/assets/js/header.js"></script>
+    <script src="./assets/js/activeNavbar.js"></script>
+    <script src="./assets/js/mobileNavigation.js"></script>
+</body>
+
+</html>

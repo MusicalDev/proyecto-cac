@@ -12,7 +12,6 @@ html {
 
 body {
     display: flex;
-    font-family: "Inter", sans-serf;
     background-color: #332550;
     margin: 0;
     padding: 0;
@@ -32,7 +31,7 @@ body {
 .contact-title {
     margin: 10px;
     position: relative;
-    top: -235px;
+    top: -290px;
     font-size: 1.5rem;
     width: auto;
     height: auto;
@@ -49,7 +48,8 @@ body {
 
 @media (max-width: 1024px) {
     .contact-title {
-        top: 115px;
+        display: none;
+        top: 10px;
         font-size: 1rem;
         padding: 10px;
     }
@@ -98,13 +98,13 @@ body {
 @media (max-width: 450px) {
     .contact-title2 {
         display: flex;
-        top: 0px;
+        top: 70px;
         font-size: 1.2rem;
         padding: 10px;
     }
 }
 
-.main1 {
+.main2 {
     display: flex;
     width: 80vw;
     height: 92vh;
@@ -115,13 +115,13 @@ body {
 }
 
 @media (max-width: 768px) {
-    .main1 {
+    .main2 {
         width: 98vw;
         height: 98vh;
     }
 }
 
-.container1 {
+.container2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 79.5vw;
@@ -134,7 +134,7 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .container1 {
+    .container2 {
         grid-template-columns: 1fr;
         width: 79vw;
         height: 91vh;
@@ -146,13 +146,13 @@ body {
 }
 
 @media (max-width: 768px) {
-    .container1 {
+    .container2 {
         width: 96vw;
         height: 97vh;
     }
 }
 
-.content1 {
+.content2 {
     display: flex;
     width: 100%;
     height: 100%;
@@ -161,7 +161,7 @@ body {
     place-content: center;
 }
 
-#contactForm {
+#formulario {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -169,22 +169,24 @@ body {
     justify-content: center;
     place-items: justify;
     flex-grow: 1;
+    padding: 0 40px;
+
 }
 
 @media (max-width: 1024px) {
-    #contactForm {
+    #formulario {
         padding: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    #contactForm {
+    #formulario {
         padding: 20px;
     }
 }
 
 @media (max-width: 576px) {
-    #contactForm {
+    #formulario {
         padding: 10px;
         width: 80vw;
         padding-top: 30px;
@@ -192,11 +194,14 @@ body {
     }
 }
 
-
-#firstname,
-#lastname,
-#phone,
-#email {
+label {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+#descripcion,
+#cantidad,
+#precio,
+#proveedorProducto {
     font-size: 18px;
     font-weight: 600;
     display: block;
@@ -211,28 +216,18 @@ body {
     transition: border-color .25s ease, box-shadow .25s ease;
     box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.329);
 }
-
-#message {
-    font-size: 18px;
-    font-weight: 600;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: none;
-    border: 2px solid white;
-    background-color: #D7D4DF;
-    color: #6B4FA9;
-    border-radius: 30px;
-    transition: border-color .55s ease, box-shadow .55s ease;
-    padding: 12px 10px;
-    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.329);
+#imagenProducto {
+margin-bottom: 10px;
+color: #FFFFFF;
 }
 
-#firstname:focus,
-#lastname:focus,
-#phone:focus,
-#email:focus,
-#message:focus {
+
+
+#descripcion:focus,
+#cantidad:focus,
+#precio:focus,
+#imagenProducto:focus,
+#proveedorProducto:focus {
     outline: 0;
     border-color: #ab58f8;
 
@@ -240,21 +235,16 @@ body {
 
 @media only screen and (max-width: 1024px) {
 
-    #firstname,
-    #lastname,
-    #phone,
-    #email,
-    #message {
+    #descripcion,
+    #cantidad,
+    #precio,
+    #imagenProducto,
+    #proveedorProducto {
         font-size: 15px;
         padding: 10px 15px;
     }
 }
 
-
-.error {
-    color: rgb(236, 157, 157);
-    font-size: 14px;
-}
 
 /* button {
     border: 0;
@@ -269,7 +259,7 @@ body {
     transition: all 0.5s ease;
     border-radius: 30px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5),
-  -1px -1px 6px rgba(255, 255, 255, 0.4);
+    -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
 @media only screen and (max-width: 576px) {
 button {
@@ -287,9 +277,9 @@ button:disabled {
     background-color: #ccc;
 } */
 
-.image-container {
+.image-container2 {
     display: flex;
-    background-image: url("../images/contact2.png");
+    background-image: url("../images/subirProducto.png");
     background-color: #6B4FA9;
     width: 100%;
     height: 600px;
@@ -304,33 +294,29 @@ button:disabled {
 }
 
 @media (max-width: 1024px) {
-    .image-container {
+    .image-container2 {
+        position: relative;
         display: flex;
-        margin-top: 15px;
-        height: 100vh;
+        top: 30px;
+        margin-top: 0px;
+        height: 100%;
         background-size: contain;
         height: 600px;
         justify-content: center;
         align-items: center;
         text-align: center;
+        overflow-y: hidden!important;
 
     }
 }
 
 @media (max-width: 450px) {
-    .image-container {
+    .image-container2 {
         display: none;
     }
 }
 
-.g-recaptcha {
-    display: flex;
-    width: auto;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
+
 
 button {
     font-size: 20px;
@@ -347,8 +333,9 @@ button {
     transition: all 0.3s;
 }
 
-button:hover {
-    transform: translateY(-3px);
+button:hover,
+.volverMenu:hover {
+    transform: translateY(3px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -363,28 +350,26 @@ button span {
     transition: all 0.3s;
 }
 
-button svg {
-    width: 18px;
-    height: 18px;
-    fill: white;
-    transition: all 0.3s;
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-button .svg-wrapper {
+.volverMenu, .agregarProducto {
+    width: 263px;
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(to bottom, #f1edf1 0%, #ddc5f3 100%);
+    color: #33305D;
+    padding: 10px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.705);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s;
-}
-
-button:hover .svg-wrapper {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-button:hover svg {
-    transform: rotate(45deg);
+    margin-bottom: 20px;
 }
