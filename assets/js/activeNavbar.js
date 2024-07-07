@@ -30,6 +30,40 @@
 //     }
 // });
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     const currentPageURL = window.location.pathname.toLowerCase();
+//     const navLinks = document.querySelectorAll('.nav-link');
+//     const misProductosLink = document.querySelector('.mis-productos-link');
+
+//     console.log("Current Page URL:", currentPageURL);
+//     console.log("Mis Productos Link:", misProductosLink);
+
+//     // Marcar "Mis productos" como activo si la URL contiene cualquiera de las siguientes páginas
+//     const productPages = [
+//         '/altas.html',
+//         '/listado.html',
+//         '/listadoeliminar.html',
+//         '/modificaciones.html',
+//         '/misproductos.html'
+//     ];
+
+//     if (productPages.includes(currentPageURL)) {
+//         if (misProductosLink) {
+//             misProductosLink.classList.add('active');
+//             console.log("Mis productos link marked as active");
+//         } else {
+//             console.log("Mis productos link not found");
+//         }
+//     } else {
+//         navLinks.forEach(link => {
+//             if (link.pathname.toLowerCase() === currentPageURL) {
+//                 link.classList.add('active');
+//                 console.log(`Link ${link.href} marked as active`);
+//             }
+//         });
+//     }
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
     const currentPageURL = window.location.pathname.toLowerCase();
     const navLinks = document.querySelectorAll('.nav-link');
@@ -44,8 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
         '/listado.html',
         '/listadoeliminar.html',
         '/modificaciones.html',
-        '/misproductos.html'
+        '/misproductos'
     ];
+
+    // Debug: Imprimir las páginas de productos
+    console.log("Product Pages:", productPages);
 
     if (productPages.includes(currentPageURL)) {
         if (misProductosLink) {
@@ -56,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     } else {
         navLinks.forEach(link => {
+            console.log("Checking link:", link.pathname.toLowerCase());
             if (link.pathname.toLowerCase() === currentPageURL) {
                 link.classList.add('active');
                 console.log(`Link ${link.href} marked as active`);
