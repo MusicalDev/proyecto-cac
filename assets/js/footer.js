@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <h3>Rosario&nbsp;<span>Swap</span></h3>
         <div class="footer-links">
           <a href="/">Home</a>
-          <a href="/Swap.html">Swap</a>
-          <a href="/Index.html#about">About</a>
-          <a href="Contacto.html">Contact</a>
+          <a href="/swap.html">Swap</a>
+          <a href="/index.html#about">About</a>
+          <a href="contacto.html">Contact</a>
         </div>
         <div class="footer-company-name">Copyright © 2024 <strong>Rosario Swap</strong> All rights reserved</div>
       </div>

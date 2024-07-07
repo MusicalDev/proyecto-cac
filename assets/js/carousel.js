@@ -7,7 +7,7 @@ let Carousel = `
       <div class='content'>
         <h2 class='title'>Fomenta la economía local</h2>
         <p class='description'> Apoya a negocios y emprendedores de tu zona. </p>
-          <a href="/Contacto.html"><button>Leer más</button></a>
+          <a href="/contacto.html"><button>Leer más</button></a>
       </div>
     </li>
     <li class='item' style="background-image: url('./assets/images/back2.jpeg')">

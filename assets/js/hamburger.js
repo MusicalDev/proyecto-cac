@@ -9,11 +9,11 @@ let Hamburger = `
   </label>
   <nav class="mobile-navigation">  
     <a href="/" class="nav-link">Home</a>
-    <a href="/Swap.html" class="nav-link">Swap</a>
-    <a href="/MisProductos.html" class="nav-link">Mis productos</a>
-    <a href="/Perfil.html" class="nav-link">Perfil</a>
-    <a href="/Login.html" class="nav-link">Login</a>
-    <a href="/Contacto.html" class="nav-link">Contacto</a>
+    <a href="/swap.html" class="nav-link">Swap</a>
+    <a href="/misproductos.html" class="nav-link">Mis productos</a>
+    <a href="/perfil.html" class="nav-link">Perfil</a>
+    <a href="/login.html" class="nav-link">Login</a>
+    <a href="/contacto.html" class="nav-link">Contacto</a>
     </nav>
 </div>`
 
