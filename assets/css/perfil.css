@@ -4,7 +4,7 @@
     width: 100%;
     background-color: #6B4FA9;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -12,12 +12,25 @@
 }
 
 .title-perfil {
-    color: aliceblue;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
     font-size: 3rem;
     font-weight: bold;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .title-perfil {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     font-size: 2rem;
+    }
 }
 
-.perfil-image {
+/* .perfil-image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +38,39 @@
     width: 450px;
     height: 500px;
     background-repeat: no-repeat;
-    object-fit: contain;
+    object-fit: fill;
     object-position: center;
+} */
+/* @media (max-width: 768px) {
+    .perfil-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        width: auto;
+        background-image: url('../images/under-construction.webp');
+        background-repeat: no-repeat;
+        object-fit: fill;
+        object-position: center;
+    }
+} */
+.perfil-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.perfil-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* O puedes usar 'cover' según tu necesidad */
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .perfil-image {
+        max-width: 100%;
+        width: auto;
+    }
 }

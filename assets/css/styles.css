@@ -303,6 +303,16 @@ nav a:hover {
 .login {
     background-color: #6B4FA9;
 }
+.containerSocial {
+    display: flex;
+    gap: 10px;
+}
+@media only screen and (max-width: 550px) {
+    .containerSocial {
+        display: flex;
+        gap: 10px;
+    }
+}
 
 .instagram {
     background-color: #e1e1e9;

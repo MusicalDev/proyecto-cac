@@ -98,7 +98,7 @@ body {
 @media (max-width: 450px) {
     .contact-title2 {
         display: flex;
-        top: 70px;
+        top: 10px;
         font-size: 1.2rem;
         padding: 10px;
     }
