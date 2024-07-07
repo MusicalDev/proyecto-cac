@@ -74,10 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Marcar "Mis productos" como activo si la URL contiene cualquiera de las siguientes páginas
     const productPages = [
-        '/altas.html',
-        '/listado.html',
-        '/listadoeliminar.html',
-        '/modificaciones.html',
+        '/altas',
+        '/listado',
+        '/listadoeliminar',
+        '/modificaciones',
         '/misproductos'
     ];
 
