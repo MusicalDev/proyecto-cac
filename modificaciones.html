@@ -56,8 +56,8 @@
                             <label for="cantidadModificar">Cantidad:</label>
                             <input type="number" id="cantidadModificar" required><br>
 
-                            <label for="precioModificar">Precio:</label>
-                            <input type="number" step="0.01" id="precioModificar" required><br>
+                            <!-- <label for="precioModificar">Precio:</label>
+                            <input type="number" step="0.01" id="precioModificar" required><br> -->
 
                             <!-- Imagen actual del producto - Debe comentarse al subirse al servidor-->
                             <img id="imagen-actual" style="max-width: 200px; display: none;">
@@ -70,8 +70,8 @@
                             <input type="file" id="nuevaImagen"><br>
 
                             <br>
-                            <label for="proveModificar">Proveedor:</label>
-                            <input type="number" id="proveModificar" required><br>
+                            <label for="proveModificar">Intercambio por:</label>
+                            <input type="text" id="proveModificar" required><br>
                             <div class="buttonContainer">
                             <button class="guardarCambios" type="submit">Guardar Cambios</button>
                             <a class="guardarCambios" href="MisProductos.html">Cancelar</a>
@@ -95,7 +95,7 @@
         let codigo = '';
         let descripcion = '';
         let cantidad = '';
-        let precio = '';
+        // let precio = '';
         let proveedor = '';
         let imagen_url = '';
         let imagenSeleccionada = null;
@@ -121,7 +121,7 @@
                 .then(data => {
                     descripcion = data.descripcion;
                     cantidad = data.cantidad;
-                    precio = data.precio;
+                    // precio = data.precio;
                     proveedor = data.proveedor;
                     imagen_url = data.imagen_url;
                     mostrarDatosProducto = true; //Activa la vista del segundo formulario
@@ -139,7 +139,7 @@
             if (mostrarDatosProducto) {
                 document.getElementById('descripcionModificar').value = descripcion;
                 document.getElementById('cantidadModificar').value = cantidad;
-                document.getElementById('precioModificar').value = precio;
+                // document.getElementById('precioModificar').value = precio;
                 document.getElementById('proveModificar').value = proveedor;
 
                 const imagenActual = document.getElementById('imagen-actual');
@@ -181,7 +181,7 @@
             formData.append('descripcion', document.getElementById('descripcionModificar').value);
             formData.append('cantidad', document.getElementById('cantidadModificar').value);
             formData.append('proveedor', document.getElementById('proveModificar').value);
-            formData.append('precio', document.getElementById('precioModificar').value);
+            // formData.append('precio', document.getElementById('precioModificar').value);
 
             // Si se ha seleccionado una imagen nueva, la añade al formData.
             if (imagenSeleccionada) {
@@ -215,7 +215,7 @@
             document.getElementById('codigo').value = '';
             document.getElementById('descripcionModificar').value = '';
             document.getElementById('cantidadModificar').value = '';
-            document.getElementById('precioModificar').value = '';
+            // document.getElementById('precioModificar').value = '';
             document.getElementById('proveModificar').value = '';
             document.getElementById('nuevaImagen').value = '';
 
@@ -228,7 +228,7 @@
             codigo = '';
             descripcion = '';
             cantidad = '';
-            precio = '';
+            // precio = '';
             proveedor = '';
             imagen_url = '';
             imagenSeleccionada = null;

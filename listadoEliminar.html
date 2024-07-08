@@ -38,7 +38,7 @@
                         <th>Descripción</th>
                         <th>Cantidad</th>
                         <th>Imagen</th>
-                        <th align="right">Precio</th>
+                        <!-- <th align="right">Precio</th> -->
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -81,7 +81,6 @@
                             <td>${producto.descripcion}</td>
                             <td>${producto.cantidad}</td>
                             <td><img src="https://www.pythonanywhere.com/user/musicdev/files/home/musicdev/mysite/static/imagenes/${producto.imagen_url}" alt="Imagen de ${producto.descripcion}" /></td>
-                            <td align="right">${producto.precio}</td>
                             <td><button class="buttonEliminar" onclick="eliminarProducto('${producto.codigo}')">Eliminar</button></td>
         `;
                     });
