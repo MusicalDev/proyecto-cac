@@ -170,8 +170,8 @@ justify-content: center;
 }
 
 .button2, .guardarCambios {
-    width: 221px;
-    font-size: 16px;
+    width: 250px;
+    font-size: 14px;
     font-weight: 600;
     background: linear-gradient(to bottom, #f1edf1 0%, #ddc5f3 100%);
     color: #33305D;
@@ -264,10 +264,10 @@ label {
     margin-bottom: 8px;
 }
 #codigo {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     display: block;
-    width: auto;
+    width: 250px;
     height: 35px;
     background: none;
     border: 2px solid white;
