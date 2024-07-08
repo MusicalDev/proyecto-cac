@@ -47,8 +47,7 @@
         </div>
         </div>
     </div>
-    <br />
-
+    
     <div class="contenedor-centrado">
         <a class="menuPrincipal" href="MisProductos.html">Menú principal</a>
     </div>
@@ -80,7 +79,7 @@
                             <td>${producto.codigo}</td>
                             <td>${producto.descripcion}</td>
                             <td>${producto.cantidad}</td>
-                            <td><img src="https://www.pythonanywhere.com/user/musicdev/files/home/musicdev/mysite/static/imagenes/${producto.imagen_url}" alt="Imagen de ${producto.descripcion}" /></td>
+                            <td><img src="${URL}static/imagenes/${producto.imagen_url}" alt="Imagen del producto" style="width: 100px;"></td>
                             <td><button class="buttonEliminar" onclick="eliminarProducto('${producto.codigo}')">Eliminar</button></td>
         `;
                     });
